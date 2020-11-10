@@ -39,3 +39,33 @@
         </v-row>
     </v-container>
 </template>
+
+<script lang="ts">
+//Todo: Crear una validación cuando no se traiga la data en el prop
+import { Component, Mixins } from 'vue-property-decorator'
+import { Utils } from '@/mixins/utils'
+import axios from 'axios'
+
+@Component
+export default class ContactButton extends Mixins(Utils) {
+
+  mounted() {
+    // console.log('estoy en el login')
+    const config = {
+        headers: { 'Access-Control-Allow-Origin': '*'}
+    }
+    axios.get('/api/', config )
+      .then( response => {
+        console.log(response)
+      })
+      .catch( error => {
+          console.log(error)
+      })
+
+      
+  }
+
+
+}
+
+</script>

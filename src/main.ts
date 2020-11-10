@@ -13,6 +13,13 @@ sync(store, router)
 
 Vue.config.productionTip = false
 
+declare module 'vue/types/vue' {
+  interface VueConstructor {
+    // eslint-disable-next-line
+    http: any;
+  }
+}
+
 new Vue({
   router,
   store,

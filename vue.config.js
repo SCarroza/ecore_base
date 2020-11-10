@@ -1,4 +1,14 @@
 module.exports = {
+  devServer: {
+    proxy: {
+      '/api/': {
+        target: 'http://localhost/backecore/index.php',
+        changeOrigin: true, // so CORS doesn't bite us. 
+        timeout: 6000,
+        secure: false,
+      }
+    }
+  },
   "transpileDependencies": [
     "vuetify",
     'vuex-module-decorators'
