@@ -21,7 +21,7 @@
     </h1>
 
     <v-spacer />
-    <v-toolbar-items v-if="$route.path != '/login'">
+    <v-toolbar-items>
       <v-row
         align="center"
         class="mx-0"
@@ -32,11 +32,6 @@
           label="Search..."
           hide-details
         /> -->
-        <material-clock />
-        <material-date />
-        <h2 class="pr-2 pl-2">
-          Nombre_Usuario
-        </h2>
         <!-- <v-btn
           icon
           to="/"

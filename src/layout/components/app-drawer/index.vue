@@ -70,22 +70,7 @@ export default class extends Mixins(Utils) {
       to: '/dashboard',
       icon: 'mdi-view-dashboard',
       text: 'Inicio'
-    },
-    {
-      to: '/caja/index',
-      icon: 'mdi-cash-register',
-      text: 'Caja'
-    },
-    {
-      to: '/comandas/index',
-      icon: 'mdi-book-open-page-variant',
-      text: 'Comandas'
-    },
-    {
-      to: '/cuadrar-caja/index',
-      icon: 'mdi-clipboard-list',
-      text: 'Cuadrar Caja'
-    },
+    }
     
   ]
   mobile = false

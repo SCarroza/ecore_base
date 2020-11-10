@@ -9,7 +9,7 @@
       <a
         href="#"
         target="_blank"
-      >Razor7w</a>
+      >Widefense</a>
     </span>
   </v-footer>
 </template>

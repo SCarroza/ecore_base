@@ -37,58 +37,7 @@ export const Routes: RouteConfig[] = [
           }
         }
       ]
-  },
-  {
-    path: '/caja',
-    component: Layout,
-    redirect: '/caja/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/caja/index.vue'),
-        name: 'Caja',
-        meta: {
-          title: 'caja',
-          icon: 'caja',
-          requiresAuth: true
-        }
-      }
-    ]
-  },
-  {
-    path: '/comandas',
-    component: Layout,
-    redirect: '/comandas/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/comandas/index.vue'),
-        name: 'Comandas',
-        meta: {
-          title: 'comandas',
-          icon: 'comandas',
-          requiresAuth: true
-        }
-      }
-    ]
-  },
-  {
-    path: '/cuadrar-caja',
-    component: Layout,
-    redirect: '/cuadrar-caja/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/cuadrar-caja/index.vue'),
-        name: 'Cuadrar Cajas',
-        meta: {
-          title: 'cuadrar-caja',
-          icon: 'cuadrar-caja',
-          requiresAuth: true
-        }
-      }
-    ]
-  },
+  }
 
 ]
 
