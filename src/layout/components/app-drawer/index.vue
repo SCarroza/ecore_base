@@ -5,8 +5,6 @@
     color="primary"
     dark
     width="220"
-    :mini-variant="mobile"
-    :permanent="mobile"
   >
     <v-list>
       <v-list-item class="px-2">

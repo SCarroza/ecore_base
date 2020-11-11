@@ -19,10 +19,12 @@
                 <v-card-text>
                     <v-form>
                     <v-text-field
+                        v-model="userName"
                         label="Nombre"
                         prepend-inner-icon="mdi-account"
                     ></v-text-field>
                     <v-text-field
+                        v-model="userPass"
                         label="Contraseña"
                         type="password"
                         prepend-inner-icon="mdi-lock"
@@ -31,7 +33,7 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn  color="primary" to="/dashboard">Iniciar Sesión</v-btn>
+                    <v-btn  color="primary" @click="login">Iniciar Sesión</v-btn>
                 </v-card-actions>
                 </v-card>
                     </v-row>
@@ -48,22 +50,25 @@ import axios from 'axios'
 
 @Component
 export default class ContactButton extends Mixins(Utils) {
+    userName = ''
+    userPass = ''
 
-  mounted() {
-    // console.log('estoy en el login')
-    const config = {
-        headers: { 'Access-Control-Allow-Origin': '*'}
+    mounted() {
+        //
     }
-    axios.get('/api/', config )
-      .then( response => {
-        console.log(response)
-      })
-      .catch( error => {
-          console.log(error)
-      })
 
-      
-  }
+    login() {
+        axios.post('/api/', {
+            userName: this.userName,
+            userPass: this.userPass
+        })
+        .then( response => {
+            console.log(response)
+        })
+        .catch( error => {
+            console.log(error)
+        })
+    }
 
 
 }
