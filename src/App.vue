@@ -1,5 +1,5 @@
 <template>
-  <v-app class="fondo">
+  <v-app v-bind:class="[isLogin ? fondo : '']">
     <!-- <core-drawer v-if="$route.path != '/login'"/>
     <core-app-bar />
     <core-view />
@@ -29,6 +29,9 @@ export default class App extends Vue {
       'type': 'Mecánico',
       'fuel': 'Bencina'
     }
+  isLogin () {
+    return this.$route.path != '/login'
+  }
   public created () {
     // console.log(this.moment().format('hh:mm:ssA'))
     // console.log(user.user)
