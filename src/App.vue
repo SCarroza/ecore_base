@@ -1,5 +1,5 @@
 <template>
-  <v-app v-bind:class="[isLogin ? fondo : '']">
+  <v-app :class="isLogin ? 'fondo' : 'exdi2'">
     <!-- <core-drawer v-if="$route.path != '/login'"/>
     <core-app-bar />
     <core-view />
@@ -21,6 +21,7 @@ import 'moment/locale/es';
 export default class App extends Vue {
   carModuleInstance = getModule(carModule, this.$store)
   moment = require('moment');
+  isLogin = false;
   auto1: Car  = {
       'wheels' : 4,
       'doors' : 4,
@@ -29,10 +30,12 @@ export default class App extends Vue {
       'type': 'Mecánico',
       'fuel': 'Bencina'
     }
-  isLogin () {
-    return this.$route.path != '/login'
-  }
   public created () {
+    this.$watch(
+      () => this.$route,
+      (route) => {
+        this.isLogin = route.name === "Login"
+      });
     // console.log(this.moment().format('hh:mm:ssA'))
     // console.log(user.user)
     // const MyModuleInstance = getModule(MyStoreModule, this.$store);
