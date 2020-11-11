@@ -6,6 +6,7 @@
     dark
     flat
     height="70"
+    :src="bar_bg"
   >
     <v-btn
         v-if="!this.appModule.drawer"
@@ -15,82 +16,60 @@
       >
         <v-icon>mdi-menu</v-icon>
     </v-btn>
-    <h1>
+    <!-- <h1 centered>
       Sistema
       {{ /* title */ }}
-    </h1>
-
-    <v-spacer />
-    <v-toolbar-items>
-      <v-row
-        align="center"
-        class="mx-0"
+    </h1> -->
+    <v-row no-gutters>
+      <v-col
+        cols="12"
+        sm="4"
+        class="mt-4"
       >
-        <!-- <v-text-field
-          class="mr-4 purple-input"
-          color="purple"
-          label="Search..."
-          hide-details
-        /> -->
-        <!-- <v-btn
-          icon
-          to="/"
-        >
-          <v-icon color="tertiary">
-            mdi-view-dashboard
-          </v-icon>
-        </v-btn> -->
-        <!-- <v-menu
-          bottom
-          left
-          offset-y
-          transition="slide-y-transition"
-        >
-          <template v-slot:activator="{ attrs, on }">
-            <v-btn
-              class="toolbar-items"
-              icon
-              to="/notifications"
-              v-bind="attrs"
-              v-on="on"
-            >
-              <v-badge
-                color="error"
-                overlap
-              >
-                <template slot="badge">
-                  {{ notifications.length }}
-                </template>
-                <v-icon color="tertiary">
-                  mdi-bell
-                </v-icon>
-              </v-badge>
-            </v-btn>
-          </template>
-
-          <v-card>
-            <v-list dense>
-              <v-list-item
-                v-for="notification in notifications"
-                :key="notification"
-                @click="onClick"
-              >
-                <v-list-item-title v-text="notification" />
-              </v-list-item>
-            </v-list>
-          </v-card>
-        </v-menu> -->
-
+        <h4>nombre_contexto</h4>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="4"
+        class="text-center mt-4"
+      >
+        <h4>COMMAND & CONTROL SECURITY CENTER</h4>
+      </v-col>
+      <v-col
+        cols="12"
+        sm="4"
+        class="text-end"
+      >
         <v-btn
+          tile
+          color="transparent"
+          elevation="0"
+        >
+          <v-icon left>
+            mdi-account
+          </v-icon>
+          Sebastián Carroza
+        </v-btn>
+        <v-btn
+          class="ml-5"
           to="/login"
           icon
+          x-large
         >
           <v-icon color="tertiary">
-            mdi-exit-to-app
+            mdi-power
           </v-icon>
         </v-btn>
-      </v-row>
-    </v-toolbar-items> 
+      </v-col>
+    </v-row>
+
+    <v-img
+          contain
+          max-height="60"
+          max-width="60"
+          :src="image_wd"
+          class="ml-15"
+        ></v-img>
   </v-app-bar>
 </template>
 
@@ -114,6 +93,8 @@ export default class extends Vue {
   responsive = false
   title = ''
   notifications = ''
+  image_wd =  require('@/assets/logo_widefense.png');
+  bar_bg =  require('@/assets/bar_bg.png');
 
   @Watch('$route', { immediate: true, deep: true })
   onChildChanged(val: Route) {
