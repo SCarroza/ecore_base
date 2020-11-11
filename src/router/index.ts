@@ -55,6 +55,150 @@ export const Routes: RouteConfig[] = [
         }
       }
     ]
+  },
+  {
+    path: '/configurador',
+    name: 'Configurador',
+    component: Layout,
+    redirect: '/configurador/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "configurador" */ '@/views/configurador/index.vue'),
+        name: 'Index configurador',
+        meta: {
+          title: 'configurador',
+          icon: 'configurador',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/casos',
+    name: 'Casos',
+    component: Layout,
+    redirect: '/casos/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "casos" */ '@/views/casos/index.vue'),
+        name: 'Index casos',
+        meta: {
+          title: 'casos',
+          icon: 'casos',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/monitoreo',
+    name: 'Monitoreo',
+    component: Layout,
+    redirect: '/monitoreo/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "monitoreo" */ '@/views/monitoreo/index.vue'),
+        name: 'Index monitoreo',
+        meta: {
+          title: 'monitoreo',
+          icon: 'monitoreo',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/operacion',
+    name: 'Operacion',
+    component: Layout,
+    redirect: '/operacion/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "operacion" */ '@/views/operacion/index.vue'),
+        name: 'Index operacion',
+        meta: {
+          title: 'operacion',
+          icon: 'operacion',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/soporte',
+    name: 'Soporte',
+    component: Layout,
+    redirect: '/soporte/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "soporte" */ '@/views/soporte/index.vue'),
+        name: 'Index soporte',
+        meta: {
+          title: 'soporte',
+          icon: 'soporte',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/preferencias',
+    name: 'Preferencias',
+    component: Layout,
+    redirect: '/preferencias/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "preferencias" */ '@/views/preferencias/index.vue'),
+        name: 'Index preferencias',
+        meta: {
+          title: 'preferencias',
+          icon: 'preferencias',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/depurador',
+    name: 'Depurador',
+    component: Layout,
+    redirect: '/depurador/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "depurador" */ '@/views/depurador/index.vue'),
+        name: 'Index depurador',
+        meta: {
+          title: 'depurador',
+          icon: 'depurador',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/perfiles',
+    name: 'Perfiles',
+    component: Layout,
+    redirect: '/perfiles/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "perfiles" */ '@/views/perfiles/index.vue'),
+        name: 'Index perfiles',
+        meta: {
+          title: 'perfiles',
+          icon: 'perfiles',
+          requiresAuth: true
+        }
+      }
+    ]
   }
 
 ]

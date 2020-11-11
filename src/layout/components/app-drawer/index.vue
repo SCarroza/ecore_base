@@ -33,6 +33,7 @@
         v-for="(link, i) in links"
         :key="i"
         :to="link.to"
+        class="mb-0 nav-item"
         active-class="primary white--text"
       >
         <v-list-item-action>
@@ -67,13 +68,55 @@ export default class extends Mixins(Utils) {
     {
       to: '/accesos/index',
       icon: 'mdi-monitor',
-      text: 'Acceso'
+      text: 'ACCESOS'
     },
     {
       to: '/actualizacion/index',
       icon: 'mdi-source-branch',
-      text: 'Actualizacion'
+      text: 'ACTUALIZADOR'
     },
+    {
+      to: '/configurador/index',
+      icon: 'mdi-cog',
+      text: 'CONFIGURADOR'
+    },
+    {
+      to: '/casos/index',
+      icon: 'mdi-ticket-confirmation',
+      text: 'CASOS'
+    },
+    {
+      to: '/monitoreo/index',
+      icon: 'mdi-earth',
+      text: 'MONITOREO'
+    },
+    {
+      to: '/operacion/index',
+      icon: 'mdi-file-excel-outline',
+      text: 'OPERACIÓN'
+    },
+    {
+      to: '/soporte/index',
+      icon: 'mdi-cloud',
+      text: 'SOPORTE'
+    },
+    {
+      to: '/preferencias/index',
+      icon: 'mdi-eye',
+      text: 'PREFERENCIAS'
+    },
+    {
+      to: '/depurador/index',
+      icon: 'mdi-keyboard',
+      text: 'DEPURADOR'
+    },
+    {
+      to: '/perfiles/index',
+      icon: 'mdi-account-group',
+      text: 'PERFILES'
+    },
+    
+    
     
   ]
   mobile = false
@@ -131,3 +174,8 @@ export default class extends Mixins(Utils) {
 }
 
 </script>
+<style scoped>
+.nav-item {
+  /* clase a trabajar */
+}
+</style>
