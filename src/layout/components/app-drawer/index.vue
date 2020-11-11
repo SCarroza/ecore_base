@@ -65,10 +65,15 @@ export default class extends Mixins(Utils) {
   avatar = ''
   links = [
     {
-      to: '/dashboard',
-      icon: 'mdi-view-dashboard',
-      text: 'Inicio'
-    }
+      to: '/accesos/index',
+      icon: 'mdi-monitor',
+      text: 'Acceso'
+    },
+    {
+      to: '/actualizacion/index',
+      icon: 'mdi-source-branch',
+      text: 'Actualizacion'
+    },
     
   ]
   mobile = false

@@ -21,22 +21,40 @@ export const Routes: RouteConfig[] = [
     component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
   },
   {
-      path: '/',
-      name: 'Home',
-      component: Layout,
-      redirect: '/dashboard',
-      children: [
-        {
-          path: 'dashboard',
-          component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
-          name: 'Dashboard',
-          meta: {
-            title: 'dashboard',
-            icon: 'dashboard',
-            requiresAuth: true
-          }
+    path: '/accesos',
+    name: 'Acessos',
+    component: Layout,
+    redirect: '/accesos/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "accesos" */ '@/views/accesos/index.vue'),
+        name: 'Index Accesos',
+        meta: {
+          title: 'accesos',
+          icon: 'accesos',
+          requiresAuth: true
         }
-      ]
+      }
+    ]
+  },
+  {
+    path: '/actualizacion',
+    name: 'Actualizacion',
+    component: Layout,
+    redirect: '/actualizacion/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "actualizacion" */ '@/views/actualizacion/index.vue'),
+        name: 'Index actualizacion',
+        meta: {
+          title: 'actualizacion',
+          icon: 'actualizacion',
+          requiresAuth: true
+        }
+      }
+    ]
   }
 
 ]
