@@ -5,6 +5,7 @@ import MyStoreModule from '@/store/modules/MyStoreModule'
 import CarModule from '@/store/modules/car'
 import AppModule from '@/store/modules/app'
 import SessionModule from '@/store/modules/session'
+import LoginModule from '@/store/modules/login'
 
  Vue.use(Vuex)
 
@@ -24,7 +25,8 @@ export default new Vuex.Store({
     UserModule,
     CarModule,
     AppModule,
-    SessionModule
+    SessionModule,
+    LoginModule
   }
 })
 
