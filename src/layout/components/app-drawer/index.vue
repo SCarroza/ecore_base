@@ -4,7 +4,7 @@
     app
     color="primary"
     dark
-    width="220"
+    width="320"
   >
     <v-list>
       <v-list-item class="px-2">
@@ -27,21 +27,38 @@
 
     <v-list nav>
       <!-- Bug in Vuetify for first child of v-list not receiving proper border-radius -->
-      <div />
 
-      <v-list-item
+      <v-list-group
         v-for="(link, i) in links"
         :key="i"
         :to="link.to"
         class="mb-0 nav-item"
         active-class="primary white--text"
+        :prepend-icon="link.icon"
       >
-        <v-list-item-action>
+        <!-- <v-list-item-action>
           <v-icon>{{ link.icon }}</v-icon>
         </v-list-item-action>
 
-        <v-list-item-title v-text="link.text" />
-      </v-list-item>
+        <v-list-item-title v-text="link.text" /> -->
+        <template v-slot:activator>
+          <v-list-item-content>
+            <v-list-item-title v-text="link.text"></v-list-item-title>
+          </v-list-item-content>
+        </template>
+
+        <v-list-item
+            v-for="child in link.items"
+            :key="child.title"
+            :to="child.link"
+            active-class="primary white--text"
+          >
+            <v-list-item-content>
+              <v-list-item-title v-text="child.title"></v-list-item-title>
+            </v-list-item-content>
+        </v-list-item>
+          
+      </v-list-group>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -68,7 +85,11 @@ export default class extends Mixins(Utils) {
     {
       to: '/accesos/index',
       icon: 'mdi-monitor',
-      text: 'ACCESOS'
+      text: 'ACCESOS',
+      items: [{title: 'actualizacion',
+               link: '/actualizacion/index'},
+              {title: 'configurador',
+               link: '/configurador/index'},]
     },
     {
       to: '/actualizacion/index',
@@ -177,5 +198,6 @@ export default class extends Mixins(Utils) {
 <style scoped>
 .nav-item {
   /* clase a trabajar */
+  border: red;
 }
 </style>
