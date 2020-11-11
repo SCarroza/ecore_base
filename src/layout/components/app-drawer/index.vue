@@ -5,6 +5,7 @@
     color="primary"
     dark
     width="320"
+    :src="bar_bg"
   >
     <v-list>
       <v-list-item class="px-2">
@@ -80,6 +81,7 @@ export default class extends Mixins(Utils) {
   appModule = getModule(AppModule, this.$store)
   @Prop({ default: false }) opened: boolean | undefined
   imageProfile = require('@/assets/profile.jpeg')
+  bar_bg =  require('@/assets/bar_bg.png');
   avatar = ''
   links = [
     {
