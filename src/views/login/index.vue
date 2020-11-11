@@ -9,9 +9,10 @@
             >
                 <v-card class="mt-5" color="rgb(0, 0, 0, 0.2)" dark>
                     <v-img
+                        class="pt-2"
                         contain
                         height="250"
-                        :src="image_login"
+                        :src="image_ethalamus"
                     ></v-img>
                 <!--<v-toolbar
                     color="primary"
@@ -38,10 +39,48 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn  color="primary" @click="login">Iniciar Sesión</v-btn>
+                    <v-btn  color="green" block @click="login">Iniciar Sesión</v-btn>
                 </v-card-actions>
+                <v-flex text-center>
+                    <v-btn text class="text-decoration-underline">
+                        Olvide mi contraseña
+                    </v-btn>
+                </v-flex>
+                <v-img
+                    contain
+                    height="75"
+                    :src="image_wd"
+                    class="mt-2 mb-2"
+                />
+                <v-flex text-center>
+                    <v-btn
+                        icon
+                        color="grey"
+                    >
+                        <v-icon>mdi-shield-half-full</v-icon>
+                    </v-btn>
+                    <v-btn
+                        icon
+                        color="grey"
+                    >
+                        <v-icon>mdi-chart-bar-stacked</v-icon>
+                    </v-btn>
+                    <v-btn
+                        icon
+                        color="grey"
+                    >
+                        <v-icon>mdi-ticket-confirmation</v-icon>
+                    </v-btn>
+                    <v-btn
+                        icon
+                        color="grey"
+                    >
+                        <v-icon>mdi-file-document-outline</v-icon>
+                    </v-btn>
+                
+                </v-flex>
                 </v-card>
-                    </v-row>
+            </v-row>
         </v-col>
         </v-row>
     </v-container>
@@ -57,7 +96,8 @@ import axios from 'axios'
 export default class ContactButton extends Mixins(Utils) {
     userName = ''
     userPass = ''
-    image_login =  require('@/assets/logo_ethalamus.png');
+    image_ethalamus =  require('@/assets/logo_ethalamus.png');
+    image_wd =  require('@/assets/logo_widefense.png');
 
     mounted() {
         //
@@ -80,3 +120,7 @@ export default class ContactButton extends Mixins(Utils) {
 }
 
 </script>
+
+<style lang="css">
+html { overflow-y: auto }
+</style>
