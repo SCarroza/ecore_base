@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="fondo">
     <!-- <core-drawer v-if="$route.path != '/login'"/>
     <core-app-bar />
     <core-view />
@@ -60,3 +60,7 @@ export default class App extends Vue {
   }
 }
 </script>
+
+<style lang="css" scoped>
+.fondo {background: radial-gradient(#3b6991, #000000) !important;}
+</style>

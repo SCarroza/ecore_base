@@ -7,15 +7,20 @@
             justify="center"
             class="pa-5 ma-5"
             >
-                <v-card class="elevation-12 mt-5">
-                <v-toolbar
+                <v-card class="mt-5" color="rgb(0, 0, 0, 0.2)" dark>
+                    <v-img
+                        contain
+                        height="250"
+                        :src="image_login"
+                    ></v-img>
+                <!--<v-toolbar
                     color="primary"
                     dark
                     flat
                 >
                     <v-toolbar-title>Iniciar Sesión</v-toolbar-title>
                     <v-spacer></v-spacer>
-                </v-toolbar>
+                </v-toolbar> -->
                 <v-card-text>
                     <v-form>
                     <v-text-field
@@ -52,6 +57,7 @@ import axios from 'axios'
 export default class ContactButton extends Mixins(Utils) {
     userName = ''
     userPass = ''
+    image_login =  require('@/assets/logo_ethalamus.png');
 
     mounted() {
         //
