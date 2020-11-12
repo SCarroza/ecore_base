@@ -34,18 +34,18 @@
         active-class="primary white--text"
         >
           <v-list-group
-            v-if="link.items"
+            v-if="link.subItems"
             active-class="primary white--text"
             :prepend-icon="link.icon"
           >
             <template v-slot:activator>
-              <v-list-item-content>
+              <v-list-item-content class="matias-prueba">
                 <v-list-item-title v-text="link.text"></v-list-item-title>
               </v-list-item-content>
             </template>
 
             <v-list-item
-              v-for="child in link.items"
+              v-for="child in link.subItems"
               :key="child.title"
               :to="child.link"
               active-class="primary white--text"
@@ -89,57 +89,66 @@ export default class extends Mixins(Utils) {
   avatar = ''
   links = [
     {
+      to : '/accesos/index',
       icon: 'mdi-monitor',
-      text: 'ACCESOS',
-      items: [{title: 'actualizacion',
-               link: '/actualizacion/index'},
-              {title: 'configurador',
-               link: '/configurador/index'},]
+      text: 'accesos'
     },
     {
       to: '/actualizacion/index',
       icon: 'mdi-source-branch',
-      text: 'ACTUALIZADOR'
+      text: 'actualizacion'
     },
     {
       to: '/configurador/index',
       icon: 'mdi-cog',
-      text: 'CONFIGURADOR'
+      text: 'configurador'
     },
     {
-      to: '/casos/index',
       icon: 'mdi-ticket-confirmation',
-      text: 'CASOS'
+      text: 'casos',
+      subItems: [{title: 'reportes',
+                  link: '/casos/index'},
+                 {title: 'abiertos',
+                  link: '/casos/index'},
+                 {title: 'globales',
+                  link: '/casos/index'}
+                    ]
     },
     {
-      to: '/monitoreo/index',
       icon: 'mdi-earth',
-      text: 'MONITOREO'
+      text: 'monitoreo',
+      subItems: [{title: 'alertas',
+                  link: '/monitoreo/index'},
+                 {title: 'emergencias',
+                  link: '/monitoreo/index'},
+                 {title: 'incidentes',
+                  link: '/monitoreo/index'}
+                    ]
     },
     {
       to: '/operacion/index',
       icon: 'mdi-file-excel-outline',
-      text: 'OPERACIÓN'
+      text: 'operacion'
     },
     {
       to: '/soporte/index',
       icon: 'mdi-cloud',
-      text: 'SOPORTE'
+      text: 'soporte'
     },
     {
       to: '/preferencias/index',
       icon: 'mdi-eye',
-      text: 'PREFERENCIAS'
+      text: 'preferencias'
     },
     {
       to: '/depurador/index',
       icon: 'mdi-keyboard',
-      text: 'DEPURADOR'
+      text: 'depurador'
     },
     {
       to: '/perfiles/index',
       icon: 'mdi-account-group',
-      text: 'PERFILES'
+      text: 'perfiles'
     },
     
     
@@ -195,11 +204,25 @@ export default class extends Mixins(Utils) {
         this.size = this.sizeDesktop
       }
     }
-
-
 }
-
 </script>
 <style scoped>
-
+* {
+  text-transform: uppercase;
+}
+.v-list-item {
+  padding: 0;
+}
+.v-list-group {
+  padding: 0;
+  width: 100%;
+}
+.v-list-item .v-list-item {
+  padding: 0 32px;
+}
+</style>
+<style>
+.v-list-group .v-icon {
+  padding-left: 16px;
+}
 </style>
