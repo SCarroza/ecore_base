@@ -19,20 +19,15 @@ export const Routes: RouteConfig[] = [
     component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: () => import(/* webpackChunkName: "login" */ '@/views/Test.vue'),
-  },
-  {
     path: '/accesos/index',
     name: 'Acessos',
     component: () => import(/* webpackChunkName: "accesos" */ '@/views/accesos/index.vue'),
     meta: { requiresAuth: true }
   },
   {
-    path: '/actualizacion/index',
-    name: 'Actualizacion',
-    component: () => import(/* webpackChunkName: "actualizacion" */ '@/views/actualizacion/index.vue'),
+    path: '/actualizador/index',
+    name: 'Actualizador',
+    component: () => import(/* webpackChunkName: "actualizador" */ '@/views/actualizador/index.vue'),
     meta: { requiresAuth: true }
   },
   {

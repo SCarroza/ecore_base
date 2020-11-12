@@ -27,40 +27,54 @@
     </v-list>
 
     <v-divider class="mx-3 mb-3" />
+    <v-list>
+      <div  v-for="(item, i) in items"
+        :key="item.title">
+        <div v-if="item.items">
+          <!-- TIENE CHILD -->
+            <v-list-group
+              :key="i"
+              v-model="item.active"
+              :prepend-icon="item.icon"
+              no-action
+            >
+              <template v-slot:activator>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.title"></v-list-item-title>
+                </v-list-item-content>
+              </template>
 
-    <v-list dense>
-      <!-- list-item -->
-      <v-list-item
-         v-for="(link, i) in links"
-          :key="i"
-          :to="link.to"
-          active-class="primary white--text"
-           :prepend-icon="link.icon"
-      > 
-          <v-icon v-text="link.icon"></v-icon>
-          <v-list-item-content>
-            <v-list-item-title v-text="link.text" class="px-3"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <!-- list-group witch child -->
-        <!-- <v-list-group
-                  v-for="(link, i) in links"
-                  :key="i"
-                  active-class="primary white--text"
-                  :prepend-icon="link.icon"
-                >
-            <v-list-item
-                v-for="child in link.items"
+              <v-list-item
+                v-for="child in item.items"
                 :key="child.title"
-                :to="child.link"
-                active-class="primary white--text"
+                link
+                :to="child.to"
               >
+                <v-list-item-icon>
+                    <v-icon>{{ child.icon}}</v-icon>
+                  </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title v-text="child.title"></v-list-item-title>
                 </v-list-item-content>
-            </v-list-item>
-          </v-list-group> -->
+              </v-list-item>
+            </v-list-group>
+        </div>
+        <!-- NO TIENE CHILD -->
+        <div v-else>
+          <v-list-item
+            :key="i"
+            :to="item.to"
+            active-class="primary white--text"
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+
+            <v-list-item-title v-text="item.title" />
+          </v-list-item>
+        </div>
+
+      </div>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -84,69 +98,70 @@ export default class extends Mixins(Utils) {
   imageProfile = require('@/assets/profile.jpeg')
   bar_bg =  require('@/assets/bar_bg.png');
   avatar = ''
-  links = [
-    {
-      to: '/accesos/index',
-      icon: 'mdi-monitor',
-      text: 'ACCESOS',
-      items: [{title: 'actualizacion',
-               link: '/actualizacion/index'},
-              {title: 'configurador',
-               link: '/configurador/index'},]
-    },
-    {
-      to: '/actualizacion/index',
-      icon: 'mdi-source-branch',
-      text: 'ACTUALIZADOR'
-    },
-    {
-      to: '/configurador/index',
-      icon: 'mdi-cog',
-      text: 'CONFIGURADOR'
-    },
-    {
-      to: '/casos/index',
-      icon: 'mdi-ticket-confirmation',
-      text: 'CASOS'
-    },
-    {
-      to: '/monitoreo/index',
-      icon: 'mdi-earth',
-      text: 'MONITOREO'
-    },
-    {
-      to: '/operacion/index',
-      icon: 'mdi-file-excel-outline',
-      text: 'OPERACIÓN'
-    },
-    {
-      to: '/soporte/index',
-      icon: 'mdi-cloud',
-      text: 'SOPORTE'
-    },
-    {
-      to: '/preferencias/index',
-      icon: 'mdi-eye',
-      text: 'PREFERENCIAS'
-    },
-    {
-      to: '/depurador/index',
-      icon: 'mdi-keyboard',
-      text: 'DEPURADOR'
-    },
-    {
-      to: '/perfiles/index',
-      icon: 'mdi-account-group',
-      text: 'PERFILES'
-    },
-    
-    
-    
-  ]
   mobile = false
   size =  0
   sizeMobile = 42
   sizeDesktop = 70
+  items= [
+    {
+      title: 'ACCESOS',
+      icon: 'mdi-monitor',
+      to: '/accesos/index'
+    },
+    {
+      title: 'ACTUALIZADOR',
+      icon: 'mdi-source-branch',
+      to: '/actualizador/index'
+    },
+    {
+      title: 'CONFIGURADOR',
+      icon: 'mdi-cog',
+      to: '/configurador/index'
+    },
+    {
+      title: 'CASOS',
+      icon: 'mdi-ticket-confirmation',
+      items: [
+        { title: 'Reportes', icon: 'mdi-domain', to:'' },
+        { title: 'Abiertos', icon: 'mdi-domain', to:'' },
+        { title: 'Globales', icon: 'mdi-domain', to:'' }
+      ]
+    },
+    {
+      title: 'MONITOREO',
+      icon: 'mdi-earth',
+      items: [
+        { title: 'Alertas', icon: 'mdi-domain', to:'' },
+        { title: 'Emergencias', icon: 'mdi-domain', to:'' },
+        { title: 'Incidentes', icon: 'mdi-domain', to:'' }
+      ]
+    },
+    {
+      title: 'OPERACIÓN',
+      to: '/operacion/index',
+      icon: 'mdi-file-excel-outline'
+    },
+    {
+      title: 'SOPORTE',
+      to: '/soporte/index',
+      icon: 'mdi-cloud'
+    },
+    {
+      title: 'PREFERENCIAS',
+      to: '/preferencias/index',
+      icon: 'mdi-eye'
+    },
+    {
+      title: 'DEPURADOR',
+      to: '/depurador/index',
+      icon: 'mdi-keyboard',
+    },
+    {
+      title: 'PERFILES',
+      to: '/perfiles/index',
+      icon: 'mdi-account-group',
+    }
+  ]
 
   get inputValue () {
     return this.appModule.drawer
