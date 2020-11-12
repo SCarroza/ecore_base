@@ -9,20 +9,15 @@
     absolute
     temporary
   >
-    <v-list>
-      <v-list-item class="px-2">
-        <h1> Menú </h1>
-        <v-spacer />
-        <v-btn
-          class="ma-2"
-          text
-          icon
-          @click="this.appModule.toggleDrawer"
-        >
-          <v-icon>
-            mdi-menu
-          </v-icon>
-        </v-btn>
+    <v-list class="py-0">
+      <v-list-item class="px-2 btn-menu" @click="this.appModule.toggleDrawer">
+        <v-list-item-icon>
+          <v-icon color="green">mdi-menu</v-icon>
+        </v-list-item-icon>
+  
+        <v-list-item-content>
+          <v-list-item-title>menu</v-list-item-title>
+        </v-list-item-content>
       </v-list-item>
     </v-list>
 
