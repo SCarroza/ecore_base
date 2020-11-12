@@ -3,17 +3,30 @@
         <v-card-text>
             <v-form>
             <v-text-field
-                v-model="userName"
-                label="Nombre de Usuario"
-                prepend-inner-icon="mdi-account"
-            ></v-text-field>
+            v-model="userName"
+            label="Usuario"
+            outlined
+            background-color="secondary"
+            clearable
+            required
+            dark
+          ></v-text-field>
             </v-form>
         </v-card-text>
         <v-flex text-center class="mb-5">
-            <v-btn color="error" class="mr-2" @click="cancel">
+            <v-btn depressed
+            x-large
+            color="error"
+            type="submit"
+            class="text-capitalize ml-2" @click="cancel">
                 Cancelar
             </v-btn>
-            <v-btn color="success" class="ml-2">
+            <v-btn
+            depressed
+            x-large
+            color="primary"
+            type="submit"
+            class="text-capitalize ml-2">
                 Aceptar
             </v-btn>
         </v-flex>

@@ -1,68 +1,31 @@
 <template>
-    <v-container fluid>
-        <v-col cols="12">
-            <v-row
-            align="center"
-            justify="center"
-            >
-                <v-card class="mt-5" color="rgb(0, 0, 0, 0.2)" dark>
-                    <v-img
-                        class="pt-2"
-                        contain
-                        height="250"
-                        :src="image_ethalamus"
-                    ></v-img>
-                <!--<v-toolbar
-                    color="primary"
-                    dark
-                    flat
-                >
-                    <v-toolbar-title>Iniciar Sesión</v-toolbar-title>
-                    <v-spacer></v-spacer>
-                </v-toolbar> -->
-                <!-- <login-form />
-                <login-forget-password /> -->
+  <v-container
+    class="container fill-height"
+    fluid
+  >
+    <v-row
+      class="justify-center"
+    >
+      <v-col cols="auto">
+        <v-img
+          class="logo"
+          contain
+          max-width="400"
+          lazy-src='@/assets/logo_ethalamus.png'
+          :src="image_ethalamus"
+        ></v-img>
 
-                <!-- Componente Dinámico --> 
-                <component :is="loginInstance.currentComponent"/>
-
-                <v-img
-                    contain
-                    height="75"
-                    :src="image_wd"
-                    class="mt-2 mb-2"
-                />
-                <v-flex text-center>
-                    <v-btn
-                        icon
-                        color="grey"
-                    >
-                        <v-icon>mdi-shield-half-full</v-icon>
-                    </v-btn>
-                    <v-btn
-                        icon
-                        color="grey"
-                    >
-                        <v-icon>mdi-chart-bar-stacked</v-icon>
-                    </v-btn>
-                    <v-btn
-                        icon
-                        color="grey"
-                    >
-                        <v-icon>mdi-ticket-confirmation</v-icon>
-                    </v-btn>
-                    <v-btn
-                        icon
-                        color="grey"
-                    >
-                        <v-icon>mdi-file-document-outline</v-icon>
-                    </v-btn>
-                
-                </v-flex>
-                </v-card>
-            </v-row>
-        </v-col>
-    </v-container>
+        <!-- Componente Dinámico --> 
+        <component :is="loginInstance.currentComponent"/>
+        <a class="link d-flex justify-center" @click="goForgetPassword">¿Olvidó su contraseña?</a>
+        <v-flex text-center class="login-icons">
+            <v-icon color="grey">mdi-chart-bar-stacked</v-icon>
+            <v-icon color="grey">mdi-shield-half-full</v-icon>
+            <v-icon color="grey">mdi-file-document-outline</v-icon> 
+        </v-flex>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -82,6 +45,10 @@ export default class ContactButton extends Mixins(Utils) {
 
     mounted() {
         //
+    }
+
+    goForgetPassword () {
+        this.loginInstance.setComponent('login-forget-password')
     }
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <!-- <div>
         <v-card-text>
             <v-form>
                 <v-text-field
@@ -24,7 +24,36 @@
                 Olvidé mi contraseña
             </v-btn>
         </v-flex>
-    </div>
+    </div> -->
+    <form>
+          <v-text-field
+            v-model="userName"
+            label="Usuario"
+            outlined
+            background-color="secondary"
+            clearable
+            required
+            dark
+          ></v-text-field><!-- autofocus if needed -->
+          <v-text-field
+            v-model="userPass"
+            label="Contraseña"
+            type="password"
+            background-color="secondary"
+            outlined
+            dark
+            clearable
+            required
+          ></v-text-field>
+          <v-btn
+            block
+            depressed
+            x-large
+            color="primary"
+            type="submit"
+            class="text-capitalize"
+          >Ingresar</v-btn>
+        </form>
 </template>
 
 <script lang="ts">
