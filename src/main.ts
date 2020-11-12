@@ -8,6 +8,12 @@ import { sync } from 'vuex-router-sync'
 import './plugins'
 // Components
 import './components'
+//Layout
+import Layout from '@/layout/index.vue'
+//Blank Layout
+import BlankLayout from '@/layout-blank/AppMain.vue'
+Vue.component('default-layout', Layout)
+Vue.component('blank-layout', BlankLayout )
 
 sync(store, router)
 

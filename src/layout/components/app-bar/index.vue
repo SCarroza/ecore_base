@@ -9,7 +9,6 @@
     :src="bar_bg"
   >
     <v-btn
-        v-if="!this.appModule.drawer"
         text
         icon
         @click.stop="onClick"

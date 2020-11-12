@@ -4,7 +4,10 @@
     <core-app-bar />
     <core-view />
     <core-footer /> -->
-    <router-view :key="$route.path"/>
+    <!-- <router-view :key="$route.path"/> -->
+    <component :is="layout">
+      <router-view :key="$route.path"/>
+    </component>
   </v-app>
 </template>
 
@@ -19,6 +22,10 @@ import 'moment/locale/es';
 
 @Component
 export default class App extends Vue {
+  default_layout = "default"
+  get layout () {
+    return (this.$route.meta.layout || this.default_layout) + '-layout';
+  }
   carModuleInstance = getModule(carModule, this.$store)
   moment = require('moment');
   isLogin = false;

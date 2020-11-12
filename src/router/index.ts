@@ -4,9 +4,6 @@ import Meta from 'vue-meta'
 //Import Store
 import store from '@/store'
 
-/* Layout */
-import Layout from '@/layout/index.vue'
-
 Vue.use(VueRouter)
 
 export const Routes: RouteConfig[] = [
@@ -18,188 +15,69 @@ export const Routes: RouteConfig[] = [
   {
     path: '/login',
     name: 'Login',
+    meta: { layout: 'blank'},
     component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
   },
   {
-    path: '/accesos',
+    path: '/accesos/index',
     name: 'Acessos',
-    component: Layout,
-    redirect: '/accesos/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "accesos" */ '@/views/accesos/index.vue'),
-        name: 'Index Accesos',
-        meta: {
-          title: 'accesos',
-          icon: 'accesos',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "accesos" */ '@/views/accesos/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/actualizacion',
-    name: 'Actualizacion',
-    component: Layout,
-    redirect: '/actualizacion/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "actualizacion" */ '@/views/actualizacion/index.vue'),
-        name: 'Index actualizacion',
-        meta: {
-          title: 'actualizacion',
-          icon: 'actualizacion',
-          requiresAuth: true
-        }
-      }
-    ]
+    path: '/actualizador/index',
+    name: 'Actualizador',
+    component: () => import(/* webpackChunkName: "actualizador" */ '@/views/actualizador/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/configurador',
+    path: '/configurador/index',
     name: 'Configurador',
-    component: Layout,
-    redirect: '/configurador/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "configurador" */ '@/views/configurador/index.vue'),
-        name: 'Index configurador',
-        meta: {
-          title: 'configurador',
-          icon: 'configurador',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "configurador" */ '@/views/configurador/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/casos',
+    path: '/casos/index',
     name: 'Casos',
-    component: Layout,
-    redirect: '/casos/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "casos" */ '@/views/casos/index.vue'),
-        name: 'Index casos',
-        meta: {
-          title: 'casos',
-          icon: 'casos',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "casos" */ '@/views/casos/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/monitoreo',
+    path: '/monitoreo/index',
     name: 'Monitoreo',
-    component: Layout,
-    redirect: '/monitoreo/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "monitoreo" */ '@/views/monitoreo/index.vue'),
-        name: 'Index monitoreo',
-        meta: {
-          title: 'monitoreo',
-          icon: 'monitoreo',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "monitoreo" */ '@/views/monitoreo/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/operacion',
+    path: '/operacion/index',
     name: 'Operacion',
-    component: Layout,
-    redirect: '/operacion/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "operacion" */ '@/views/operacion/index.vue'),
-        name: 'Index operacion',
-        meta: {
-          title: 'operacion',
-          icon: 'operacion',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "operacion" */ '@/views/operacion/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/soporte',
+    path: '/soporte/index',
     name: 'Soporte',
-    component: Layout,
-    redirect: '/soporte/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "soporte" */ '@/views/soporte/index.vue'),
-        name: 'Index soporte',
-        meta: {
-          title: 'soporte',
-          icon: 'soporte',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "soporte" */ '@/views/soporte/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/preferencias',
+    path: '/preferencias/index',
     name: 'Preferencias',
-    component: Layout,
-    redirect: '/preferencias/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "preferencias" */ '@/views/preferencias/index.vue'),
-        name: 'Index preferencias',
-        meta: {
-          title: 'preferencias',
-          icon: 'preferencias',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "preferencias" */ '@/views/preferencias/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/depurador',
+    path: '/depurador/index',
     name: 'Depurador',
-    component: Layout,
-    redirect: '/depurador/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "depurador" */ '@/views/depurador/index.vue'),
-        name: 'Index depurador',
-        meta: {
-          title: 'depurador',
-          icon: 'depurador',
-          requiresAuth: true
-        }
-      }
-    ]
+    component: () => import(/* webpackChunkName: "depurador" */ '@/views/depurador/index.vue'),
+    meta: { requiresAuth: true }
   },
   {
-    path: '/perfiles',
+    path: '/perfiles/index',
     name: 'Perfiles',
-    component: Layout,
-    redirect: '/perfiles/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "perfiles" */ '@/views/perfiles/index.vue'),
-        name: 'Index perfiles',
-        meta: {
-          title: 'perfiles',
-          icon: 'perfiles',
-          requiresAuth: true
-        }
-      }
-    ]
-  }
+    component: () => import(/* webpackChunkName: "perfiles" */ '@/views/perfiles/index.vue'),
+    meta: { requiresAuth: true }
+  },
 
 ]
 
