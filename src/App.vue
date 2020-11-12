@@ -22,7 +22,7 @@ import 'moment/locale/es';
 
 @Component
 export default class App extends Vue {
-  default_layout = "default"
+  default_layout = "blank"
   get layout () {
     return (this.$route.meta.layout || this.default_layout) + '-layout';
   }
@@ -74,6 +74,33 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="css" scoped>
-.fondo {background: radial-gradient(#3b6991, #000000) !important;}
+<style lang="css">
+.fondo {
+  background: #3d3c3c !important;
+  background: radial-gradient(circle, #3d3c3c 0%, #262626 45%, #000 100%) !important;
+}
+form {
+  margin: 0px 35px !important;
+}
+
+.logo {
+  margin-bottom: 30px !important;
+}
+.link {
+  color: #808080 !important;
+  margin-top: 30px !important;
+  text-decoration: none !important;
+}
+.link:hover {
+  color: #fff !important;
+  transition: 0.3s !important;
+}
+.login-icons {
+  color: #ccc !important;
+  font-size: 24px !important;
+}
+.login-icons svg {
+  margin: 30px 15px !important;
+}
+
 </style>
