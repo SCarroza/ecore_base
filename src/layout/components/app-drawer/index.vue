@@ -27,31 +27,43 @@
     <v-divider class="mx-3 mb-3" />
 
     <v-list dense>
-        <v-list-group
-          v-for="(link, i) in links"
-          :key="i"
-          active-class="primary white--text"
-          :prepend-icon="link.icon"
-          :append-icon="link.items ? 'mdi-chevron-down' : ''"
+      <v-list-item
+        v-for="(link, i) in links"
+        :key="i"
+        :to= link.to
+        active-class="primary white--text"
         >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-text="link.text"></v-list-item-title>
-            </v-list-item-content>
-          </template>
-
-          <v-list-item
-            v-for="child in link.items"
-            :key="child.title"
-            :to="child.link"
+          <v-list-group
+            v-if="link.items"
             active-class="primary white--text"
-            
+            :prepend-icon="link.icon"
           >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title v-text="link.text"></v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="child in link.items"
+              :key="child.title"
+              :to="child.link"
+              active-class="primary white--text"
+            >
+
+              <v-list-item-content>
+                <v-list-item-title v-text="child.title"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
+
+          <v-list-item v-else>
+            <v-icon v-text="link.icon"></v-icon>
             <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
+              <v-list-item-title v-text="link.text" class="pl-8"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list-group>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -77,7 +89,6 @@ export default class extends Mixins(Utils) {
   avatar = ''
   links = [
     {
-      to: '/accesos/index',
       icon: 'mdi-monitor',
       text: 'ACCESOS',
       items: [{title: 'actualizacion',
