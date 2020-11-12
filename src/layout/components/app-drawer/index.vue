@@ -27,38 +27,31 @@
     <v-divider class="mx-3 mb-3" />
 
     <v-list dense>
-      <!-- list-item -->
-      <v-list-item
-         v-for="(link, i) in links"
+        <v-list-group
+          v-for="(link, i) in links"
           :key="i"
-          :to="link.to"
           active-class="primary white--text"
-           :prepend-icon="link.icon"
-      > 
-          <v-icon v-text="link.icon"></v-icon>
-          <v-list-item-content>
-            <v-list-item-title v-text="link.text" class="px-3"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+          :prepend-icon="link.icon"
+          :append-icon="link.items ? 'mdi-chevron-down' : ''"
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title v-text="link.text"></v-list-item-title>
+            </v-list-item-content>
+          </template>
 
-        <!-- list-group witch child -->
-        <!-- <v-list-group
-                  v-for="(link, i) in links"
-                  :key="i"
-                  active-class="primary white--text"
-                  :prepend-icon="link.icon"
-                >
-            <v-list-item
-                v-for="child in link.items"
-                :key="child.title"
-                :to="child.link"
-                active-class="primary white--text"
-              >
-                <v-list-item-content>
-                  <v-list-item-title v-text="child.title"></v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
-          </v-list-group> -->
+          <v-list-item
+            v-for="child in link.items"
+            :key="child.title"
+            :to="child.link"
+            active-class="primary white--text"
+            
+          >
+            <v-list-item-content>
+              <v-list-item-title v-text="child.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
     </v-list>
   </v-navigation-drawer>
 </template>
