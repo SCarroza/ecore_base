@@ -6,6 +6,8 @@
     dark
     width="320"
     :src="bar_bg"
+    absolute
+    temporary
   >
     <v-list>
       <v-list-item class="px-2">
@@ -167,9 +169,10 @@ export default class extends Mixins(Utils) {
 
   reponsive () {
     if (window.innerWidth < 991) {
-      this.inputValue = false
+      // this.inputValue = false
     } else {
-      this.inputValue = true
+      //this.inputValue = true
+      // this.inputValue = false
     }
   }
 

@@ -1,11 +1,9 @@
 <template>
     <v-container fluid>
-        <v-row class="pa-5 ma-5">
         <v-col cols="12">
             <v-row
             align="center"
             justify="center"
-            class="pa-5 ma-5"
             >
                 <v-card class="mt-5" color="rgb(0, 0, 0, 0.2)" dark>
                     <v-img
@@ -64,7 +62,6 @@
                 </v-card>
             </v-row>
         </v-col>
-        </v-row>
     </v-container>
 </template>
 
