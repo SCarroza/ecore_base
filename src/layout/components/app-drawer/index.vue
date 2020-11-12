@@ -104,17 +104,17 @@ export default class extends Mixins(Utils) {
   sizeDesktop = 70
   items= [
     {
-      title: 'ACCESOS',
+      title: 'accesos',
       icon: 'mdi-monitor',
       to: '/accesos/index'
     },
     {
-      title: 'ACTUALIZADOR',
+      title: 'actualizador',
       icon: 'mdi-source-branch',
       to: '/actualizador/index'
     },
     {
-      title: 'CONFIGURADOR',
+      title: 'configurador',
       icon: 'mdi-cog',
       to: '/configurador/index'
     },
@@ -122,42 +122,42 @@ export default class extends Mixins(Utils) {
       title: 'CASOS',
       icon: 'mdi-ticket-confirmation',
       items: [
-        { title: 'Reportes', icon: 'mdi-domain', to:'' },
-        { title: 'Abiertos', icon: 'mdi-domain', to:'' },
-        { title: 'Globales', icon: 'mdi-domain', to:'' }
+        { title: 'Reportes', icon: 'mdi-file-document-outline', to:'/casos/reportes/index' },
+        { title: 'Abiertos', icon: 'mdi-chart-donut', to:'/casos/abiertos/index' },
+        { title: 'Globales', icon: 'mdi-chart-donut-variant', to:'/casos/globales/index' }
       ]
     },
     {
       title: 'MONITOREO',
       icon: 'mdi-earth',
       items: [
-        { title: 'Alertas', icon: 'mdi-domain', to:'' },
-        { title: 'Emergencias', icon: 'mdi-domain', to:'' },
-        { title: 'Incidentes', icon: 'mdi-domain', to:'' }
+        { title: 'Alertas', icon: 'mdi-alert', to:'/monitoreo/alertas/index' },
+        { title: 'Emergencias', icon: 'mdi-alert-circle', to:'/monitoreo/emergencias/index' },
+        { title: 'Incidentes', icon: 'mdi-alert-octagon', to:'/monitoreo/incidentes/index' }
       ]
     },
     {
-      title: 'OPERACIÓN',
+      title: 'operacion',
       to: '/operacion/index',
       icon: 'mdi-file-excel-outline'
     },
     {
-      title: 'SOPORTE',
+      title: 'soporte',
       to: '/soporte/index',
       icon: 'mdi-cloud'
     },
     {
-      title: 'PREFERENCIAS',
+      title: 'preferencias',
       to: '/preferencias/index',
       icon: 'mdi-eye'
     },
     {
-      title: 'DEPURADOR',
+      title: 'depurador',
       to: '/depurador/index',
       icon: 'mdi-keyboard',
     },
     {
-      title: 'PERFILES',
+      title: 'perfiles',
       to: '/perfiles/index',
       icon: 'mdi-account-group',
     }
@@ -215,5 +215,7 @@ export default class extends Mixins(Utils) {
 
 </script>
 <style scoped>
-
+* {
+  text-transform: uppercase;
+}
 </style>
