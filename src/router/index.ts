@@ -43,9 +43,39 @@ export const Routes: RouteConfig[] = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/monitoreo/index',
-    name: 'Monitoreo',
-    component: () => import(/* webpackChunkName: "monitoreo" */ '@/views/monitoreo/index.vue'),
+    path: '/casos/abiertos',
+    name: 'Abiertos',
+    component: () => import(/* webpackChunkName: "abiertos" */ '@/views/casos/abiertos.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/casos/globales',
+    name: 'Globales',
+    component: () => import(/* webpackChunkName: "globales" */ '@/views/casos/globales.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/casos/reportes',
+    name: 'Reportes',
+    component: () => import(/* webpackChunkName: "reportes" */ '@/views/casos/reportes.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/monitoreo/emergencias',
+    name: 'Emergencias',
+    component: () => import(/* webpackChunkName: "emergencias" */ '@/views/monitoreo/emergencias.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/monitoreo/alertas',
+    name: 'Alertas',
+    component: () => import(/* webpackChunkName: "alertas" */ '@/views/monitoreo/alertas.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/monitoreo/incidentes',
+    name: 'Incidentes',
+    component: () => import(/* webpackChunkName: "incidentes" */ '@/views/monitoreo/incidentes.vue'),
     meta: { requiresAuth: true }
   },
   {

@@ -32,6 +32,7 @@
               v-model="item.active"
               :prepend-icon="item.icon"
               no-action
+              active-class="primary white--text"
             >
               <template v-slot:activator>
                 <v-list-item-content>
@@ -44,6 +45,7 @@
                 :key="child.title"
                 link
                 :to="child.to"
+                active-class="primary white--text"
               >
                 <v-list-item-icon>
                     <v-icon>{{ child.icon}}</v-icon>
@@ -117,18 +119,18 @@ export default class extends Mixins(Utils) {
       title: 'CASOS',
       icon: 'mdi-ticket-confirmation',
       items: [
-        { title: 'Reportes', icon: 'mdi-file-document-outline', to:'/casos/reportes/index' },
-        { title: 'Abiertos', icon: 'mdi-chart-donut', to:'/casos/abiertos/index' },
-        { title: 'Globales', icon: 'mdi-chart-donut-variant', to:'/casos/globales/index' }
+        { title: 'Reportes', icon: 'mdi-file-document-outline', to:'/casos/reportes' },
+        { title: 'Abiertos', icon: 'mdi-chart-donut', to:'/casos/abiertos' },
+        { title: 'Globales', icon: 'mdi-chart-donut-variant', to:'/casos/globales' }
       ]
     },
     {
       title: 'MONITOREO',
       icon: 'mdi-earth',
       items: [
-        { title: 'Alertas', icon: 'mdi-alert', to:'/monitoreo/alertas/index' },
-        { title: 'Emergencias', icon: 'mdi-alert-circle', to:'/monitoreo/emergencias/index' },
-        { title: 'Incidentes', icon: 'mdi-alert-octagon', to:'/monitoreo/incidentes/index' }
+        { title: 'Alertas', icon: 'mdi-alert', to:'/monitoreo/alertas' },
+        { title: 'Emergencias', icon: 'mdi-alert-circle', to:'/monitoreo/emergencias' },
+        { title: 'Incidentes', icon: 'mdi-alert-octagon', to:'/monitoreo/incidentes' }
       ]
     },
     {
