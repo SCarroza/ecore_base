@@ -17,7 +17,7 @@
 
         <!-- Componente Dinámico --> 
         <component :is="loginInstance.currentComponent"/>
-        <a class="link d-flex justify-center" @click="goForgetPassword">¿Olvidó su contraseña?</a>
+        <a class="link d-flex justify-center" @click="goForgetPassword">{{$vuetify.lang.t('$vuetify.badge') }}</a>
         <v-flex text-center class="login-icons">
             <v-icon color="grey">mdi-chart-bar-stacked</v-icon>
             <v-icon color="grey">mdi-shield-half-full</v-icon>
@@ -44,7 +44,7 @@ export default class ContactButton extends Mixins(Utils) {
     image_wd =  require('@/assets/logo_widefense.png');
 
     mounted() {
-        //
+      console.log(process.env)
     }
 
     goForgetPassword () {
