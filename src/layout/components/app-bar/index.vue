@@ -5,70 +5,64 @@
     color="primary"
     dark
     flat
-    height="70"
+    height="64"
     :src="bar_bg"
   >
-    <v-btn
-        text
-        icon
-        @click.stop="onClick"
-      >
-        <v-icon>mdi-menu</v-icon>
-    </v-btn>
-    <!-- <h1 centered>
-      Sistema
-      {{ /* title */ }}
-    </h1> -->
-    <v-row no-gutters>
-      <v-col
-        cols="12"
-        sm="4"
-        class="mt-4"
-      >
-        <h4>nombre_contexto</h4>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="4"
-        class="text-center mt-4"
-      >
-        <h4>COMMAND & CONTROL SECURITY CENTER</h4>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="4"
-        class="text-end"
-      >
-        <v-btn
-          tile
-          color="transparent"
-          elevation="0"
+      <v-row wrap align="center">
+        <v-col cols="2" @click.stop="onClick" class="btn-menu-navbar">
+          <v-btn text>
+            <v-icon color="green">mdi-menu</v-icon>
+            <h4 class="pl-2 d-md-flex d-none">nombre_contexto</h4>
+          </v-btn>
+        </v-col>
+        <v-col
+          cols="3"
+          md="6"
+          class="text-center"
         >
-          <v-icon left>
-            mdi-account
-          </v-icon>
-          Sebastián Carroza
-        </v-btn>
-        <v-btn
-          class="ml-5"
-          to="/login"
-          icon
-          x-large
+          <h4 class="d-none d-md-block">COMMAND & CONTROL SECURITY CENTER</h4>
+          <h4 class="d-md-none d-block">C & C</h4>
+        </v-col>
+        <v-col
+          cols="2"
+          class="text-end"
         >
-          <v-icon color="tertiary">
-            mdi-power
-          </v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
+          <v-btn
+            tile
+            color="transparent"
+            elevation="0"
+          >
+            <v-icon left>
+              mdi-account
+            </v-icon>
+            <p class="d-none d-lg-flex mb-0"> 
+              Sebastián Carroza
+            </p>
+          </v-btn>
+        </v-col>
+        <v-col cols="1">
+          <v-btn
+            class="ml-5"
+            to="/login"
+            icon
+          >
 
-    <v-img
-          contain
-          max-height="60"
-          max-width="60"
-          :src="image_wd"
-          class="ml-15"
-        ></v-img>
+            <v-icon color="tertiary">
+              mdi-power
+            </v-icon>
+          </v-btn>
+        </v-col>
+        <v-col cols="1">
+          <v-img
+            contain
+            height="60"
+            width="60"
+            :src="image_wd"
+            class="d-none d-md-flex mx-auto"
+
+          ></v-img>
+        </v-col>
+      </v-row>
   </v-app-bar>
 </template>
 
@@ -117,6 +111,9 @@ export default class extends Vue {
 </script>
 
 <style>
+  .btn-menu-navbar :hover{
+    background-color: rgba(0,0,0,0.6);
+  }
   /* Fix coming in v2.0.8 */
   #core-app-bar {
     width: auto;
