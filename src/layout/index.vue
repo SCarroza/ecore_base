@@ -3,7 +3,7 @@
         <app-bar />
         <app-drawer />
         <app-main />
-        <app-footer />
+        <!-- <app-footer /> -->
     </div>
 </template>
 

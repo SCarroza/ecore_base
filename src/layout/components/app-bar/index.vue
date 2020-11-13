@@ -13,7 +13,7 @@
         icon
         @click.stop="onClick"
       >
-        <v-icon>mdi-menu</v-icon>
+        <v-icon color="green">mdi-menu</v-icon>
     </v-btn>
     <!-- <h1 centered>
       Sistema
