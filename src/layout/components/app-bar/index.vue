@@ -5,34 +5,35 @@
     color="primary"
     dark
     flat
-    height="64"
+    height="63"
     :src="bar_bg"
   >
       <v-row wrap align="center">
-        <v-col cols="2" @click.stop="onClick" class="btn-menu-navbar">
+        <v-col cols="2" @click.stop="onClick" class="dark-hover">
           <v-btn text>
-            <v-icon color="green">mdi-menu</v-icon>
+            <v-icon color="green" size="32">mdi-menu</v-icon>
             <h4 class="pl-2 d-md-flex d-none">nombre_contexto</h4>
           </v-btn>
         </v-col>
         <v-col
-          cols="3"
-          md="6"
+          cols="7"
+          lg="6"
           class="text-center"
         >
           <h4 class="d-none d-md-block">COMMAND & CONTROL SECURITY CENTER</h4>
-          <h4 class="d-md-none d-block">C & C</h4>
+          <h4 class="d-md-none d-block">C&C SC</h4>
         </v-col>
         <v-col
-          cols="2"
-          class="text-end"
+          cols="1"
+          lg="2"
+          class="dark-hover"
         >
           <v-btn
             tile
             color="transparent"
             elevation="0"
           >
-            <v-icon left>
+            <v-icon left size="28">
               mdi-account
             </v-icon>
             <p class="d-none d-lg-flex mb-0"> 
@@ -40,25 +41,28 @@
             </p>
           </v-btn>
         </v-col>
-        <v-col cols="1">
+        <v-col 
+          cols="1"
+          class="dark-hover"
+        >
           <v-btn
             class="ml-5"
             to="/login"
             icon
           >
 
-            <v-icon color="tertiary">
+            <v-icon size="28" color="tertiary">
               mdi-power
             </v-icon>
           </v-btn>
         </v-col>
-        <v-col cols="1">
+        <v-col cols="1" class="d-none d-md-flex">
           <v-img
             contain
-            height="60"
-            width="60"
+            height="56"
+            width="56"
             :src="image_wd"
-            class="d-none d-md-flex mx-auto"
+            class="mx-auto"
 
           ></v-img>
         </v-col>
@@ -111,8 +115,8 @@ export default class extends Vue {
 </script>
 
 <style>
-  .btn-menu-navbar :hover{
-    background-color: rgba(0,0,0,0.6);
+  .dark-hover :hover{
+    /* background-color: rgba(0,0,0,0.6); */
   }
   /* Fix coming in v2.0.8 */
   #core-app-bar {

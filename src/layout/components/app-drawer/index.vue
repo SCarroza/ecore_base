@@ -10,9 +10,9 @@
     temporary
   >
     <v-list class="py-0">
-      <v-list-item class="px-2 btn-menu" @click="this.appModule.toggleDrawer">
+      <v-list-item class="px-2" style="height: 64px;" @click="this.appModule.toggleDrawer">
         <v-list-item-icon>
-          <v-icon color="green">mdi-menu</v-icon>
+          <v-icon color="green" size="32">mdi-menu</v-icon>
         </v-list-item-icon>
   
         <v-list-item-content>
@@ -21,7 +21,7 @@
       </v-list-item>
     </v-list>
 
-    <v-divider class="mx-3 mb-3" />
+    <v-divider class="mx-3 mt-1 mb-3" />
     <v-list>
       <div  v-for="(item, i) in items"
         :key="item.title">
