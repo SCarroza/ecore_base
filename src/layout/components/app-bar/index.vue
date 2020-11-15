@@ -1,5 +1,57 @@
 <template>
   <v-app-bar
+    app
+    :src="bar_bg"
+    height="63"
+    dark
+  >
+    <v-row align="center">
+      <v-col cols="2" @click.stop="onClick">
+        <v-btn text>
+          <v-icon color="green" size="32">mdi-menu</v-icon>
+          <h4 class="pl-2 d-md-flex d-none">nombre_contexto</h4>
+        </v-btn>
+      </v-col>
+      <v-col auto class="text-center">
+        <h4 v-text="navTitle" class="d-none d-md-block"></h4>
+        <h4 class="d-md-none d-block">C&C SC</h4>
+      </v-col>
+      <v-col  cols="3" sm="1" lg="2" >
+        <v-btn
+            tile
+            color="transparent"
+            elevation="0"
+        >
+          <v-icon left size="28">
+            mdi-account
+          </v-icon>
+          <p class="d-none d-lg-flex mb-0" v-text="user"></p>
+        </v-btn>
+      </v-col>
+      <v-col cols="3" sm="1" >
+        <v-btn
+          to="/login"
+          icon
+        >
+          <v-icon size="28" color="tertiary">
+            mdi-power
+          </v-icon>
+        </v-btn>
+      </v-col>
+      <v-col cols="1" class="d-none d-md-flex">
+        <v-img
+            contain
+            height="56"
+            width="56"
+            :src="image_wd"
+            class="mx-auto"
+
+          ></v-img>
+      </v-col>
+
+    </v-row>
+  </v-app-bar>
+  <!-- <v-app-bar
     absolute
     app
     color="primary"
@@ -18,7 +70,7 @@
         <v-col
           cols="7"
           lg="6"
-          class="text-center"
+         
         >
           <h4 class="d-none d-md-block">COMMAND & CONTROL SECURITY CENTER</h4>
           <h4 class="d-md-none d-block">C&C SC</h4>
@@ -67,7 +119,7 @@
           ></v-img>
         </v-col>
       </v-row>
-  </v-app-bar>
+  </v-app-bar> -->
 </template>
 
 <script lang="ts">
@@ -88,7 +140,9 @@ interface Route { name: string }
 export default class extends Vue {
   appModule = getModule(AppModule, this.$store)
   responsive = false
+  navTitle = 'COMMAND & CONTROL SECURITY CENTER'
   title = ''
+  user = 'Sebastián Carroza'         
   notifications = ''
   image_wd =  require('@/assets/logo_widefense.png');
   bar_bg =  require('@/assets/bar_bg.png');
@@ -115,9 +169,6 @@ export default class extends Vue {
 </script>
 
 <style>
-  .dark-hover :hover{
-    /* background-color: rgba(0,0,0,0.6); */
-  }
   /* Fix coming in v2.0.8 */
   #core-app-bar {
     width: auto;
