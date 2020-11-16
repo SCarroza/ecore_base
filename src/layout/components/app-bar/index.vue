@@ -6,37 +6,39 @@
     dark
   >
     <v-row align="center">
-      <v-col cols="2" @click.stop="onClick">
-        <v-btn text>
-          <v-icon color="green" size="32">mdi-menu</v-icon>
-          <h4 class="pl-2 d-md-flex d-none">nombre_contexto</h4>
-        </v-btn>
+      <v-col 
+        cols="2" md="3"
+        @click.stop="onClick"
+        class="nav-menu dark-hover d-flex"
+      >
+        <v-icon color="green" size="32" Left>mdi-menu</v-icon>
+        <h4 class="pl-2 d-md-flex d-none align-self-center">nombre_contexto</h4>
       </v-col>
       <v-col auto class="text-center">
         <h4 v-text="navTitle" class="d-none d-md-block"></h4>
         <h4 class="d-md-none d-block">C&C SC</h4>
       </v-col>
-      <v-col  cols="3" sm="1" lg="2" >
-        <v-btn
-            tile
-            color="transparent"
-            elevation="0"
-        >
-          <v-icon left size="28">
-            mdi-account
-          </v-icon>
-          <p class="d-none d-lg-flex mb-0" v-text="user"></p>
-        </v-btn>
+      <v-col  
+        cols="3" 
+        sm="1" 
+        lg="2"
+        class="dark-hover px-5 nav-user d-flex"
+      >
+        <v-icon left size="28">
+          mdi-account
+        </v-icon>
+        <p class="d-none d-lg-flex mb-0" v-text="user"></p>
       </v-col>
-      <v-col cols="3" sm="1" >
-        <v-btn
-          to="/login"
-          icon
-        >
+      <v-col 
+        cols="3" 
+        sm="1" 
+        class="dark-hover nav-login text-center" 
+      >
+        <a href="/login">
           <v-icon size="28" color="tertiary">
             mdi-power
           </v-icon>
-        </v-btn>
+        </a>
       </v-col>
       <v-col cols="1" class="d-none d-md-flex">
         <v-img
@@ -51,75 +53,6 @@
 
     </v-row>
   </v-app-bar>
-  <!-- <v-app-bar
-    absolute
-    app
-    color="primary"
-    dark
-    flat
-    height="63"
-    :src="bar_bg"
-  >
-      <v-row wrap align="center">
-        <v-col cols="2" @click.stop="onClick" class="dark-hover">
-          <v-btn text>
-            <v-icon color="green" size="32">mdi-menu</v-icon>
-            <h4 class="pl-2 d-md-flex d-none">nombre_contexto</h4>
-          </v-btn>
-        </v-col>
-        <v-col
-          cols="7"
-          lg="6"
-         
-        >
-          <h4 class="d-none d-md-block">COMMAND & CONTROL SECURITY CENTER</h4>
-          <h4 class="d-md-none d-block">C&C SC</h4>
-        </v-col>
-        <v-col
-          cols="1"
-          lg="2"
-          class="dark-hover"
-        >
-          <v-btn
-            tile
-            color="transparent"
-            elevation="0"
-          >
-            <v-icon left size="28">
-              mdi-account
-            </v-icon>
-            <p class="d-none d-lg-flex mb-0"> 
-              Sebastián Carroza
-            </p>
-          </v-btn>
-        </v-col>
-        <v-col 
-          cols="1"
-          class="dark-hover"
-        >
-          <v-btn
-            class="ml-5"
-            to="/login"
-            icon
-          >
-
-            <v-icon size="28" color="tertiary">
-              mdi-power
-            </v-icon>
-          </v-btn>
-        </v-col>
-        <v-col cols="1" class="d-none d-md-flex">
-          <v-img
-            contain
-            height="56"
-            width="56"
-            :src="image_wd"
-            class="mx-auto"
-
-          ></v-img>
-        </v-col>
-      </v-row>
-  </v-app-bar> -->
 </template>
 
 <script lang="ts">
@@ -168,14 +101,33 @@ export default class extends Vue {
 
 </script>
 
+<style scoped>
+.nav-login a {
+  text-decoration: none;
+}
+.nav-login, .nav-user {
+  padding: 16px 0;
+}
+.nav-menu {
+  padding-bottom: 16px;
+  padding-left: 25px;
+}
+.dark-hover:hover {
+  background: linear-gradient(#0057a3 , #002642);
+  box-shadow: inset 0 0 4px rgba(0, 107, 187, 0.5);
+}
+</style>
 <style>
-  /* Fix coming in v2.0.8 */
-  #core-app-bar {
-    width: auto;
-  }
+.v-toolbar__content {
+  padding: 0;
+}
+/* Fix coming in v2.0.8 */
+#core-app-bar {
+  width: auto;
+}
 
-  #core-app-bar a {
-    text-decoration: none;
-  }
+#core-app-bar a {
+  text-decoration: none;
+}
 </style>
 
